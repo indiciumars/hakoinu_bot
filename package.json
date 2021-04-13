@@ -1,0 +1,17 @@
+{
+  "name": "hakoinu_bot",
+  "version": "2.0.0",
+  "repository": "git@github.com:indiciumars/hakoinu_bot.git",
+  "author": "SQUARE",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "canvas": "^2.7.0",
+    "fast-xml-parser": "^3.19.0",
+    "form-data": "^4.0.0",
+    "node-canvas-with-twemoji-and-discord-emoji": "^1.2.1",
+    "node-fetch": "^2.6.1",
+    "twitter": "^1.7.1",
+    "unicode-substring": "^1.0.0"
+  }
+}
