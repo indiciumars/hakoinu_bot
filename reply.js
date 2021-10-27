@@ -35,7 +35,7 @@ for (const tweet of data.reverse()) {
   const formData = new FormData();
   formData.append('apikey', apikey);
   formData.append('query', call);
-  const response = await (await fetch('https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk', {
+  const response = await (await fetch('https://api.a3rt.recruit.co.jp/talk/v1/smalltalk', {
     method: 'POST',
     body: formData
   })).json();
@@ -47,7 +47,7 @@ for (const tweet of data.reverse()) {
     const formData = new FormData();
     formData.append('apikey', apikey);
     formData.append('query', call.split(/[\n。?？!！]/)[0]);
-    const response = await (await fetch('https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk', {
+    const response = await (await fetch('https://api.a3rt.recruit.co.jp/talk/v1/smalltalk', {
       method: 'POST',
       body: formData
     })).json();
