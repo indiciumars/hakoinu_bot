@@ -3,6 +3,7 @@ import Twitter from 'twitter';
 import fetch from 'node-fetch';
 import unicodeSubstring from 'unicode-substring';
 import xmlParser from 'fast-xml-parser';
+import he from 'he';
 import accessToken from './access-token.js';
 import options from './update-wordlist-options.js';
 import appId from './app-id.js';
@@ -39,7 +40,10 @@ if (data.length > 0) {
 
   for (const text of sentences) {
     const url = 'http://jlp.yahooapis.jp/MAService/V1/parse?appid=' + appId + '&sentence=' + encodeURIComponent(text) + '%00';
-    const result = xmlParser.parse(await (await fetch(url)).text(), { trimValues: false }).ResultSet;
+    const result = xmlParser.parse(await (await fetch(url)).text(), {
+      trimValues: false,
+      tagValueProcessor: (val, tagName) => he.decode(val),
+    }).ResultSet;
 
     const newWords = [];
     const count = result.ma_result.total_count;
