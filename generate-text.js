@@ -1,9 +1,11 @@
 import rand from './rand.js';
 import nc from 'canvas';
-nc.registerFont('./assets/rounded-x-mgenplus-2p-bold.ttf', { family: 'rounded-x-mgenplus-2p-bold' });
+import { measureText } from 'node-canvas-with-twemoji-and-discord-emoji';
+import './register-font.js';
+
 const canvas = nc.createCanvas(1, 1);
 const hi = canvas.getContext('2d');
-hi.font = "45px 'rounded-x-mgenplus-2p-bold'";
+hi.font = "45px 'rounded-x-mgenplus-2p-bold', sans-serif";
 
 /**
  * @param {{ 0: string, 1: string, 2: string, pos: string }[]} wordlist
@@ -18,7 +20,7 @@ export default (wordlist, startWords, digressRate, maxLength, maxLines) => {
   let [prev2, prev] = startWords.slice(-2);
   let lines = 1 + startWords.filter(w => w === '\n').length;
   const lastLineText = text.split('\n').slice(-1);
-  let x = hi.measureText(lastLineText).width;
+  let x = measureText(hi, lastLineText).width;
 
   for (let i = 0; i < maxLength; i++) {
     const matches = [];
@@ -52,8 +54,8 @@ export default (wordlist, startWords, digressRate, maxLength, maxLines) => {
         lines += 1;
       }
     } else {
-      const width = hi.measureText(picked).width;
-      if (x + width <= 680){
+      const width = measureText(hi, picked).width;
+      if (x + width <= 680) {
         x += width;
       } else {
         if (lines >= maxLines) {

@@ -6,12 +6,12 @@
   "license": "UNLICENSED",
   "type": "module",
   "dependencies": {
-    "canvas": "^2.7.0",
-    "fast-xml-parser": "^3.19.0",
+    "canvas": "^2.10.1",
+    "fast-xml-parser": "^4.0.10",
     "form-data": "^4.0.0",
     "he": "^1.2.0",
     "node-canvas-with-twemoji-and-discord-emoji": "^1.2.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.2.10",
     "twitter": "^1.7.1",
     "unicode-substring": "^1.0.0"
   }

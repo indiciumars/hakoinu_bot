@@ -1,4 +1,4 @@
-/assets/rounded-x-mgenplus-2p-bold.ttf
+/assets/*.ttf
 /node_modules/
 /access-token.js
 /apikey.js
