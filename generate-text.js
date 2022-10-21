@@ -19,7 +19,7 @@ export default (wordlist, startWords, digressRate, maxLength, maxLines) => {
   let status = text;
   let [prev2, prev] = startWords.slice(-2);
   let lines = 1 + startWords.filter(w => w === '\n').length;
-  const lastLineText = text.split('\n').slice(-1);
+  const lastLineText = text.split('\n').slice(-1)[0];
   let x = measureText(hi, lastLineText).width;
 
   for (let i = 0; i < maxLength; i++) {
